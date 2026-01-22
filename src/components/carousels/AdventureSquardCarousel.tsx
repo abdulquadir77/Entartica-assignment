@@ -29,7 +29,7 @@ const AdventureSquardCarousel = () => {
   const totalPages = 2;
 
   return (
-    <div className="w-full py-14">
+    <div className="w-full py-14 mt-30">
       <h2
         className="
           text-center

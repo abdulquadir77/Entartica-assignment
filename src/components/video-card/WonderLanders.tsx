@@ -43,36 +43,87 @@ const WonderLanders = () => {
   };
   return (
     <div className="p-7">
-      <div>
-        <h2>Hear from Wonderlanders!</h2>
-        <h4>
+      <div className="flex flex-col items-center text-center p-4">
+        <h1
+          className="
+          font-mulish
+          text-[40px]
+          font-black
+          uppercase
+          leading-[1]
+          tracking-[-0.04em]
+          text-textColor
+          sm:text-[44px]
+          md:text-[50px]
+          lg:text-[56px]
+          xl:text-6xl
+        "
+        >
+          Hear from Wonderlanders!
+        </h1>
+
+        <p
+          className="
+          mt-1.5
+          inline-block
+          font-mulish
+          text-sm
+          font-medium
+          leading-[1.255]
+          md:mt-2
+          lg:text-base
+          text-gray-700
+        "
+        >
           Get all the inside scoop from loyal-thrill seekers who are spilling
           the tea.
-        </h4>
+        </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+      <div
+        className="
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-4
+    gap-4
+    -mx-[15px]   
+    sm:mx-0        
+  "
+      >
         {wonderLandersMedia.map((item, index) => (
           <div
             key={item.id}
-            className="relative rounded-2xl overflow-hidden aspect-[9/16] bg-black"
+            className="
+    relative
+    w-full
+    h-[420px]  
+    md:h-[620px]        
+    sm:h-[360px]    
+    lg:h-[420px]    
+    rounded-[20px]
+    overflow-hidden
+    bg-black
+  "
           >
             <video
               ref={(el) => {
                 videoRefs.current[index] = el;
               }}
               src={item.video}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
               playsInline
+              preload="metadata"
             />
 
-            {/* ✅ Play button ONLY hidden for active video */}
             {activeIndex !== index && (
               <button
                 onClick={() => handlePlay(index)}
                 className="absolute inset-0 flex items-center justify-center bg-black/30"
+                aria-label="Play video"
               >
-                <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center">
-                  <FaPlay className="text-blue-600 ml-1" size={20} />
+                <div className="h-12 w-12 rounded-full bg-white/80 backdrop-blur flex items-center justify-center">
+                  <FaPlay className="text-[#334DCF] ml-1" size={18} />
                 </div>
               </button>
             )}
